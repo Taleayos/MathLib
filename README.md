@@ -1,5 +1,5 @@
 # MathLib
-Implementation of your own version of the math.h library in C.
+Implementation of my own version of the math.h library in C.
 
 ## Task 1. 
 The functions of the math.h library must be implemented:
