@@ -1,0 +1,154 @@
+#include "suite_math.h"
+
+START_TEST(cos_1) { ck_assert_ldouble_eq_tol(s21_cos(0), cos(0), S21_EPS); }
+END_TEST
+
+START_TEST(cos_2) { ck_assert_ldouble_eq_tol(s21_cos(-0), cos(-0), S21_EPS); }
+END_TEST
+
+START_TEST(cos_3) { ck_assert_ldouble_eq_tol(s21_cos(1), cos(1), S21_EPS); }
+END_TEST
+
+START_TEST(cos_4) { ck_assert_ldouble_eq_tol(s21_cos(-1), cos(-1), S21_EPS); }
+END_TEST
+
+START_TEST(cos_5) { ck_assert_ldouble_eq_tol(s21_cos(0.0), cos(0.0), S21_EPS); }
+END_TEST
+
+START_TEST(cos_6) { ck_assert_ldouble_eq_tol(s21_cos(628), cos(628), S21_EPS); }
+END_TEST
+
+START_TEST(cos_7) {
+  ck_assert_ldouble_eq_tol(s21_cos(0.999999), cos(0.999999), S21_EPS);
+}
+END_TEST
+
+START_TEST(cos_8) {
+  ck_assert_ldouble_eq_tol(s21_cos(-0.999999), cos(-0.999999), S21_EPS);
+}
+END_TEST
+
+START_TEST(cos_9) {
+  ck_assert_ldouble_eq_tol(s21_cos(174.532925199433), cos(174.532925199433),
+                           S21_EPS);
+}
+END_TEST
+
+START_TEST(cos_10) {
+  ck_assert_ldouble_eq_tol(s21_cos(-174.532925199433), cos(-174.532925199433),
+                           S21_EPS);
+}
+END_TEST
+
+START_TEST(cos_11) {
+  ck_assert_ldouble_nan(s21_cos(-INFINITY));
+  ck_assert_ldouble_nan(cos(-INFINITY));
+}
+END_TEST
+
+START_TEST(cos_12) {
+  ck_assert_ldouble_nan(s21_cos(INFINITY));
+  ck_assert_ldouble_nan(cos(INFINITY));
+}
+END_TEST
+
+START_TEST(cos_13) {
+  ck_assert_ldouble_nan(s21_cos(NAN));
+  ck_assert_ldouble_nan(cos(NAN));
+}
+END_TEST
+
+START_TEST(cos_14) {
+  ck_assert_ldouble_nan(s21_cos(-NAN));
+  ck_assert_ldouble_nan(cos(-NAN));
+}
+END_TEST
+
+START_TEST(cos_15) {
+  ck_assert_ldouble_eq_tol(s21_cos(M_PI / 6), cos(M_PI / 6), S21_EPS);
+}
+END_TEST
+
+START_TEST(cos_16) {
+  ck_assert_ldouble_eq_tol(s21_cos(M_PI_4), cos(M_PI_4), S21_EPS);
+}
+END_TEST
+
+START_TEST(cos_17) {
+  ck_assert_ldouble_eq_tol(s21_cos(M_PI / 3), cos(M_PI / 3), S21_EPS);
+}
+END_TEST
+
+START_TEST(cos_18) {
+  ck_assert_ldouble_eq_tol(s21_cos(M_PI_2), cos(M_PI_2), S21_EPS);
+}
+END_TEST
+
+START_TEST(cos_19) {
+  ck_assert_ldouble_eq_tol(s21_cos(3 * M_PI_2), cos(3 * M_PI_2), S21_EPS);
+}
+END_TEST
+
+START_TEST(cos_20) {
+  ck_assert_ldouble_eq_tol(s21_cos(2 * M_PI), cos(2 * M_PI), S21_EPS);
+}
+END_TEST
+
+START_TEST(cos_21) {
+  ck_assert_ldouble_eq_tol(s21_cos(-2 * M_PI), cos(-2 * M_PI), S21_EPS);
+}
+END_TEST
+
+START_TEST(cos_22) {
+  ck_assert_ldouble_eq_tol(s21_sin(-3 * M_PI), sin(-3 * M_PI), S21_EPS);
+}
+END_TEST
+
+START_TEST(cos_23) {
+  ck_assert_ldouble_eq_tol(s21_cos(-M_PI), cos(-M_PI), S21_EPS);
+}
+END_TEST
+
+START_TEST(cos_24) {
+  ck_assert_ldouble_eq_tol(s21_cos(M_1_PI), cos(M_1_PI), S21_EPS);
+}
+END_TEST
+
+START_TEST(cos_25) {
+  ck_assert_ldouble_eq_tol(s21_cos(M_SQRT1_2), cos(M_SQRT1_2), S21_EPS);
+}
+END_TEST
+
+Suite *suite_cos(void) {
+  Suite *s = suite_create("s21_cos");
+  TCase *tc = tcase_create("case_cos");
+
+  tcase_add_test(tc, cos_1);
+  tcase_add_test(tc, cos_2);
+  tcase_add_test(tc, cos_3);
+  tcase_add_test(tc, cos_4);
+  tcase_add_test(tc, cos_5);
+  tcase_add_test(tc, cos_6);
+  tcase_add_test(tc, cos_7);
+  tcase_add_test(tc, cos_8);
+  tcase_add_test(tc, cos_9);
+  tcase_add_test(tc, cos_10);
+  tcase_add_test(tc, cos_11);
+  tcase_add_test(tc, cos_12);
+  tcase_add_test(tc, cos_13);
+  tcase_add_test(tc, cos_14);
+  tcase_add_test(tc, cos_15);
+  tcase_add_test(tc, cos_16);
+  tcase_add_test(tc, cos_17);
+  tcase_add_test(tc, cos_18);
+  tcase_add_test(tc, cos_19);
+  tcase_add_test(tc, cos_20);
+  tcase_add_test(tc, cos_21);
+  tcase_add_test(tc, cos_22);
+  tcase_add_test(tc, cos_23);
+  tcase_add_test(tc, cos_24);
+  tcase_add_test(tc, cos_25);
+
+  suite_add_tcase(s, tc);
+  return s;
+}
